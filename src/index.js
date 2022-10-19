@@ -15,13 +15,18 @@ formSalaryNode.addEventListener('submit', (event) => {
 	const saveSalaryYear = saveSalary * 12; // Сколько отложили за год
 	const passiveSalaryYear = saveSalaryYear * profitabilityPercent; // Пассивный доход в год
 	const passiveSalaryMonth = passiveSalaryYear / 12; // Пассивный доход в месяц
-	const workYears = 100000 / passiveSalaryMonth; // Сколько лет работать для пассивного дохода в размере зп
+	let workYears = Number((salary / passiveSalaryMonth).toFixed(1)); // Сколько лет работать для пассивного дохода в размере зп
+
+	if (!Number.isInteger(workYears)) {
+		workYears = Math.floor(workYears);
+	}
 
 	formOutputNode.innerHTML = `
+		<div>Откладываем в месяц: ${saveSalary}</div>
 		<div>Откладываем в год: ${saveSalaryYear}</div>
 		<div>Пассивный доход в год: ${passiveSalaryYear}</div>
 		<div>Пассивный доход в месяц: ${passiveSalaryMonth}</div>
-		<div>Чтобы был пассивный доход ${salary}, нужно работать ${workYears.toFixed(1)} лет</div>
+		<div>Чтобы был пассивный доход ${salary}, нужно работать ${workYears} лет</div>
 	`;
 
 });

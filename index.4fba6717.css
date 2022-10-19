@@ -1,2 +1,0 @@
-*,:after,:before{box-sizing:inherit}:root{--backgroundColor:#222;--color:white;box-sizing:border-box}body{background-color:var(--backgroundColor);color:var(--color);font-family:sans-serif}.section{padding-top:30px}.form-label{width:100%}.form-control{color:var(--backgroundColor);font-family:inherit}.form{max-width:400px;flex-direction:column;gap:1em;padding:2.5em;display:flex}.form-output{font-size:1.2em}
-/*# sourceMappingURL=index.4fba6717.css.map */

@@ -21,7 +21,7 @@ formSalaryNode.addEventListener('submit', (event) => {
 		<div>Откладываем в год: ${saveSalaryYear}</div>
 		<div>Пассивный доход в год: ${passiveSalaryYear}</div>
 		<div>Пассивный доход в месяц: ${passiveSalaryMonth}</div>
-		<div>Чтобы был пассивный доход ${salary}, нужно работать ${workYears} лет</div>
+		<div>Чтобы был пассивный доход ${salary}, нужно работать ${workYears.toFixed(1)} лет</div>
 	`;
 
 });

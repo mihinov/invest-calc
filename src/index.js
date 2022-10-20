@@ -58,6 +58,16 @@ function validateInput(event) {
 }
 
 function calc() {
+
+	if (
+		inputSalaryNode.value === '0' ||
+		inputProfitabilityNode.value === '0' ||
+		inputSaveSalaryNode.value === '0'
+	) {
+		formOutputNode.innerText = '';
+		return false;
+	}
+
 	const salary = Number(inputSalaryNode.value);
 	const profitabilityPercent = Number(inputProfitabilityNode.value) / 100;
 	const saveSalaryPercent = Number(inputSaveSalaryNode.value) / 100;
@@ -83,19 +93,6 @@ function calc() {
 
 	formOutputNode.appendChild(tableNode);
 }
-
-[
-	inputSalaryNode,
-	inputProfitabilityNode,
-	inputSaveSalaryNode
-].forEach(node => {
-	node.addEventListener('input', (event) => {
-		validateInput(event);
-		calc();
-	});
-});
-
-calc();
 
 function calcPassiveSalary({ salary, profitabilityPercent, saveSalaryPercent }) {
 	const saveSalaryMonth = Math.round(salary * saveSalaryPercent * 12);
@@ -156,3 +153,22 @@ function createTable(salaryArr) {
 
 	return wrapperTableNode;
 }
+
+// [
+// 	inputSalaryNode,
+// 	inputProfitabilityNode,
+// 	inputSaveSalaryNode
+// ].forEach(node => {
+// 	node.addEventListener('input', (event) => {
+// 		// validateInput(event);
+// 		calc();
+// 	});
+// });
+
+calc();
+
+formSalaryNode.addEventListener('submit', (event) => {
+	event.preventDefault();
+
+	calc();
+});

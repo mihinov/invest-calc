@@ -135,6 +135,3 @@ function createTable(salaryArr) {
 
 	return tableNode;
 }
-
-
-console.log(calcPassiveSalary({ salary: 100000, profitabilityPercent: 0.2, saveSalaryPercent: 0.2 }));

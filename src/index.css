@@ -90,3 +90,9 @@ body {
 .table thead tr {
 	border-bottom: var(--borderWidth) solid var(--color);
 }
+
+@media (max-width: 400px) {
+	.table {
+		font-size: 0.6em;
+	}
+}

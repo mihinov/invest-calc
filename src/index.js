@@ -53,11 +53,13 @@ function calc() {
 	const passiveSalaryMonth = Math.round(passiveSalaryYear / 12); // Пассивный доход в месяц
 
 	formOutputNode.innerHTML = `
-		<div>
-			Откладываем в месяц: <span class="white-space-nowrap">${parseNum(saveSalary)}</span>
-		</div>
-		<div>
-			Откладываем в год: <span class="white-space-nowrap">${parseNum(saveSalaryYear)}</span>
+		<div class="info">
+			<div class="info__item">
+				Откладываем в месяц: <span class="white-space-nowrap">${parseNum(saveSalary)}</span>
+			</div>
+			<div class="info__item">
+				Откладываем в год: <span class="white-space-nowrap">${parseNum(saveSalaryYear)}</span>
+			</div>
 		</div>
 	`;
 
@@ -105,16 +107,17 @@ function calcPassiveSalary({ salary, profitabilityPercent, saveSalaryPercent }) 
 function createTable(salaryArr) {
 	const tableNode = document.createElement('table');
 	const tbodyNode = document.createElement('tbody');
+	const wrapperTableNode = document.createElement('div');
 
 	tableNode.classList.add('table');
 	tableNode.innerHTML = `
 		<thead>
 			<tr>
 				<th>Год</th>
-				<th>Отложили в сумме</th>
-				<th>Накапало процентов</th>
-				<th>Отложили + проценты</th>
-				<th>Пассивный доход</th>
+				<th>Отложили <br> в <br>сумме</th>
+				<th>Накапало<br> процентов</th>
+				<th>Отложили <br>+<br> проценты</th>
+				<th>Пассивный<br> доход</th>
 			</tr>
 		</thead>
 	`;
@@ -133,5 +136,8 @@ function createTable(salaryArr) {
 
 	tableNode.appendChild(tbodyNode);
 
-	return tableNode;
+	wrapperTableNode.classList.add('table-wrapper');
+	wrapperTableNode.appendChild(tableNode);
+
+	return wrapperTableNode;
 }

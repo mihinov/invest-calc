@@ -96,3 +96,9 @@ body {
 		font-size: 0.6em;
 	}
 }
+
+@media (max-width: 600px) {
+	.table {
+		font-size: 0.65em;
+	}
+}

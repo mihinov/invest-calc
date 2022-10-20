@@ -8,12 +8,25 @@ function parseNum(num) {
 	num = Math.round(num);
 	let strNum = '';
 
+	if (num === 1000) {
+		return '1 000';
+	}
+
 	while (num > 1000) {
 		let numRight = num % 1000;
 
 		if (numRight === 0) {
 			numRight = '000';
 		}
+
+		if (numRight < 100 && numRight >= 10) {
+			numRight = `0${numRight}`;
+		}
+
+		if (numRight > 0 && numRight <= 10) {
+			numRight = `00${numRight}`;
+		}
+
 		num = Math.floor(num / 1000);
 		strNum = `${numRight} ${strNum}`;
 	}
@@ -22,6 +35,8 @@ function parseNum(num) {
 
 	return strNum;
 }
+
+// console.log(parseNum(100000));
 
 function validateInput(event) {
 	const inputNode = event.target;
@@ -125,11 +140,11 @@ function createTable(salaryArr) {
 	for (const { year, postponned, percents, capital, passiveSalary } of salaryArr) {
 		tbodyNode.innerHTML += `
 			<tr>
-				<td>${year}</td>
-				<td>${postponned}</td>
-				<td>${percents}</td>
-				<td>${capital}</td>
-				<td>${passiveSalary}</td>
+				<td>${parseNum(year)}</td>
+				<td>${parseNum(postponned)}</td>
+				<td>${parseNum(percents)}</td>
+				<td>${parseNum(capital)}</td>
+				<td>${parseNum(passiveSalary)}</td>
 			</tr>
 		`;
 	}

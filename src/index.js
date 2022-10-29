@@ -36,8 +36,6 @@ function parseNum(num) {
 	return strNum;
 }
 
-// console.log(parseNum(100000));
-
 function validateInput(event) {
 	const inputNode = event.target;
 
@@ -153,17 +151,6 @@ function createTable(salaryArr) {
 
 	return wrapperTableNode;
 }
-
-// [
-// 	inputSalaryNode,
-// 	inputProfitabilityNode,
-// 	inputSaveSalaryNode
-// ].forEach(node => {
-// 	node.addEventListener('input', (event) => {
-// 		// validateInput(event);
-// 		calc();
-// 	});
-// });
 
 calc();
 

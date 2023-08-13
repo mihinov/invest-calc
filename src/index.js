@@ -72,8 +72,6 @@ function calc() {
 
 	const saveSalary = Math.round(salary * saveSalaryPercent); // Сколько отложили за месяц
 	const saveSalaryYear = Math.round(saveSalary * 12); // Сколько отложили за год
-	const passiveSalaryYear = Math.round(saveSalaryYear * profitabilityPercent); // Пассивный доход в год
-	const passiveSalaryMonth = Math.round(passiveSalaryYear / 12); // Пассивный доход в месяц
 
 	formOutputNode.innerHTML = `
 		<div class="info">
@@ -95,9 +93,9 @@ function calc() {
 function calcPassiveSalary({ salary, profitabilityPercent, saveSalaryPercent }) {
 	const saveSalaryMonth = Math.round(salary * saveSalaryPercent * 12);
 	let capital = saveSalaryMonth * (1 + profitabilityPercent);
-	let passiveSalary = Math.round((capital / 12) * profitabilityPercent);
 	let postponned = saveSalaryMonth;
 	let percents = Math.round(postponned * profitabilityPercent);
+	let passiveSalary = Math.round((percents / 12) * profitabilityPercent);
 
 	const resultArr = [
 		{ year: 1, postponned, percents, capital, passiveSalary }

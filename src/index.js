@@ -104,7 +104,7 @@ function calcPassiveSalary({ salary, profitabilityPercent, saveSalaryPercent }) 
 	for (let year = 2; passiveSalary < salary; year++) {
 		capital = Math.round((capital + saveSalaryMonth) * (1 + profitabilityPercent));
 		percents = Math.round((capital - (saveSalaryMonth * year)));
-		passiveSalary = Math.round((capital / 12) * profitabilityPercent);
+		passiveSalary = Math.round((percents / 12) * profitabilityPercent);
 		postponned += saveSalaryMonth;
 		resultArr.push({ year, postponned, percents, capital, passiveSalary });
 	}
